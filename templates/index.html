@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AI Waste Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Upload Waste Image (AI-Based)</h1>
+      <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+      </form>
+      {% if result %}
+        <div class="result">Prediction: <b>{{ result }}</b></div>
+        {% if image %}
+          <img src="{{ '/' + image }}" alt="Uploaded Image">
+        {% endif %}
+      {% endif %}
+    </div>
+  </body>
+</html>
